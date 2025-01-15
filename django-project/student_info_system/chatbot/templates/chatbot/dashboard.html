@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Main content area styles */
+        main {
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* Card styles for each button */
+        .card {
+            background-color: white;
+            width: 200px;
+            height: 250px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 20px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .card-text {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .card-text:hover {
+            color: #4CAF50;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            .card {
+                width: 150px;
+                height: 200px;
+            }
+
+            main {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    Dashboard
+    <a href="{% url 'logout' %}" style="float:right; color:white; text-decoration:none; padding:10px;">Logout</a>
+</header>
+
+<main>
+    <div class="card">
+        <img src="https://th.bing.com/th/id/OIP.GgAlHGbO4cT_y-NMhUOxvgHaHp?rs=1&pid=ImgDetMain" alt="Student Image">
+        <a href="{% url 'add_student' %}" class="card-text">ADD Student</a>
+    </div>
+
+    <div class="card">
+        <img src="https://th.bing.com/th/id/OIP.CGEfBMBIYoz4Syk_3B8DawHaEK?rs=1&pid=ImgDetMain" alt="Course Image">
+        <a href="{% url 'add_course' %}" class="card-text">ADD Course</a>
+    </div>
+
+    <div class="card">
+        <img src="https://bsmedia.business-standard.com/_media/bs/img/article/2021-09/20/full/1632101780-4712.jpg" alt="Result Image">
+        <a href="{% url 'result' %}" class="card-text">ADD Result</a>
+    </div>
+
+    <div class="card">
+        <img src="https://www.picpedia.org/chalkboard/images/assignment.jpg" alt="Assignment Image">
+        <a href="{% url 'assignment' %}" class="card-text">ADD Assignment</a>
+    </div>
+
+    <div class="card">
+        <img src="https://th.bing.com/th/id/OIP.YtOi7kIDUpZiupFrTAZxJwHaDL?rs=1&pid=ImgDetMain" alt="Enrollment Image">
+        <a href="{% url 'enrollment' %}" class="card-text">ADD Enrollment</a>
+    </div>
+
+    <div class="card">
+        <img src="https://www.cioinsight.com/wp-content/uploads/2022/08/Chatbots-in-Machine-Learning-scaled.jpeg" alt="Chatbot Image">
+        <a href="{% url 'chatbot_interface' %}" class="card-text">Chatbot</a>
+    </div>
+    
+
+</main>
+
+<footer>
+    &copy; 2025 Kavyashree. All rights reserved.
+</footer>
+
+</body>
+</html>
