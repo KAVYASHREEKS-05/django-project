@@ -4,136 +4,152 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        /* General styles */
+        /* Global Styles */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f7fb;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
         }
 
-        /* Header styles */
+        /* Header Styling */
         header {
-            background-color: #4CAF50;
+            background-color: #2c3e50;
             color: white;
-            padding: 15px;
+            padding: 20px 40px;
             text-align: center;
-            font-size: 24px;
+            font-size: 28px;
             font-weight: bold;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        /* Main content area styles */
+        header a {
+            color: #3498db;
+            margin-left: 20px;
+            font-size: 18px;
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        header a:hover {
+            color: #e74c3c;
+        }
+
+        /* Main Section Styling */
         main {
-            padding: 20px;
             display: flex;
-            justify-content: center;
-            gap: 20px;
             flex-wrap: wrap;
+            justify-content: center;
+            padding: 30px 20px;
+            gap: 30px;
         }
 
-        /* Card styles for each button */
+        /* Card Styling */
         .card {
-            background-color: white;
-            width: 200px;
-            height: 250px;
+            width: 280px;
+            height: 350px;
+            background-color: #fff;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            padding: 20px;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
             position: relative;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
 
         .card img {
             width: 100%;
-            height: 200px;
+            height: 65%;
             object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 10px;
         }
 
-        .card-text {
+        .card a {
+            display: block;
+            background-color: #3498db;
+            color: white;
+            padding: 15px 0;
             font-size: 18px;
-            font-weight: bold;
-            color: #333;
+            font-weight: 600;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
+            border-radius: 0 0 10px 10px;
         }
 
-        .card-text:hover {
-            color: #4CAF50;
+        .card a:hover {
+            background-color: #2980b9;
         }
 
-        /* Footer styles */
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer Styling */
         footer {
-            background-color: #333;
+            background-color: #2c3e50;
             color: white;
             text-align: center;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+            padding: 15px 0;
+            font-size: 16px;
         }
 
-        /* Responsiveness */
+        /* Mobile Responsiveness */
         @media (max-width: 768px) {
-            .card {
-                width: 150px;
-                height: 200px;
+            header {
+                font-size: 24px;
             }
 
-            main {
-                flex-direction: column;
-                align-items: center;
+            .card {
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
             }
         }
+
     </style>
 </head>
 <body>
 
 <header>
     Dashboard
-    <a href="{% url 'logout' %}" style="float:right; color:white; text-decoration:none; padding:10px;">Logout</a>
+    <a href="{% url 'logout' %}">Logout</a>
 </header>
 
 <main>
     <div class="card">
         <img src="https://th.bing.com/th/id/OIP.GgAlHGbO4cT_y-NMhUOxvgHaHp?rs=1&pid=ImgDetMain" alt="Student Image">
-        <a href="{% url 'add_student' %}" class="card-text">ADD Student</a>
+        <a href="{% url 'add_student' %}">ADD Student</a>
     </div>
 
     <div class="card">
         <img src="https://th.bing.com/th/id/OIP.CGEfBMBIYoz4Syk_3B8DawHaEK?rs=1&pid=ImgDetMain" alt="Course Image">
-        <a href="{% url 'add_course' %}" class="card-text">ADD Course</a>
+        <a href="{% url 'add_course' %}">ADD Course</a>
     </div>
 
     <div class="card">
         <img src="https://bsmedia.business-standard.com/_media/bs/img/article/2021-09/20/full/1632101780-4712.jpg" alt="Result Image">
-        <a href="{% url 'result' %}" class="card-text">ADD Result</a>
+        <a href="{% url 'result' %}">ADD Result</a>
     </div>
 
     <div class="card">
         <img src="https://www.picpedia.org/chalkboard/images/assignment.jpg" alt="Assignment Image">
-        <a href="{% url 'assignment' %}" class="card-text">ADD Assignment</a>
+        <a href="{% url 'assignment' %}">ADD Assignment</a>
     </div>
 
     <div class="card">
-        <img src="https://th.bing.com/th/id/OIP.YtOi7kIDUpZiupFrTAZxJwHaDL?rs=1&pid=ImgDetMain" alt="Enrollment Image">
-        <a href="{% url 'enrollment' %}" class="card-text">ADD Enrollment</a>
+        <img src="https://png.pngtree.com/png-vector/20230527/ourmid/pngtree-enroll-now-button-banner-vector-clipart-png-image_7111465.png" alt="Enrollment Image">
+        <a href="{% url 'enrollment' %}">ADD Enrollment</a>
     </div>
 
     <div class="card">
         <img src="https://www.cioinsight.com/wp-content/uploads/2022/08/Chatbots-in-Machine-Learning-scaled.jpeg" alt="Chatbot Image">
-        <a href="{% url 'chatbot_interface' %}" class="card-text">Chatbot</a>
+        <a href="{% url 'chatbot_interface' %}">Chatbot</a>
     </div>
-    
-
 </main>
 
 <footer>
